@@ -26,6 +26,8 @@ const generateAction = async (req, res) => {
   const secondPrompt = `
   Take the prayer below and improve it.
   
+  But include all this details ${req.body.userInput}
+  
   Prayer: ${basePromptOutput}
 
   ImprovedPrayer
