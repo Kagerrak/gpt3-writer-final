@@ -24,28 +24,28 @@ const generateAction = async (req, res) => {
 
   const basePromptOutput = baseCompletion.data.choices.pop();
 
-  const secondPrompt = `
-  Take the prayer below and improve it.
-  
-  But include all this details ${req.body.userInput}
-  
-  Prayer: ${basePromptOutput}
+  // const secondPrompt = `
+  // Take the prayer below and improve it.
 
-  ImprovedPrayer
-  `;
+  // But include all this details ${req.body.userInput}
+
+  // Prayer: ${basePromptOutput}
+
+  // ImprovedPrayer
+  // `;
 
   //   Call the openAI a second time with Prompt #2
-  const secondPromptCompletion = await openai.createCompletion({
-    model: "text-davinci-003",
-    prompt: `${secondPrompt}`,
-    temperature: 0.8,
-    max_tokens: 500,
-  });
+  // const secondPromptCompletion = await openai.createCompletion({
+  //   model: "text-davinci-003",
+  //   prompt: `${secondPrompt}`,
+  //   temperature: 0.8,
+  //   max_tokens: 500,
+  // });
 
   //   get output
-  const secondPromptOutput = secondPromptCompletion.data.choices.pop();
+  // const secondPromptOutput = secondPromptCompletion.data.choices.pop();
 
-  res.status(200).json({ output: secondPromptOutput });
+  res.status(200).json({ output: basePromptOutput });
 };
 
 export default generateAction;
